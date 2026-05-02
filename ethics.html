@@ -6,7 +6,6 @@
     <title>Code of Ethics | TSI Professional Conduct</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Gold bubble styling for ethics page */
         .ethics-article {
             background: white;
             border-radius: 20px;
@@ -61,11 +60,53 @@
             background: #0a2e1f;
             color: white;
         }
+        /* Interactive Declaration Form */
+        .declaration-form {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 2px solid #ffd700;
+            text-align: center;
+        }
+        .declaration-form input {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            margin-bottom: 0.5rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .print-btn {
+            margin-top: 1rem;
+            background: #0a2e1f;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .print-btn:hover {
+            background: #1a4d33;
+        }
         @media (max-width: 768px) {
             .ethics-table {
                 font-size: 0.7rem;
                 display: block;
                 overflow-x: auto;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media print {
+            header, nav, footer, .ethics-nav, .declaration-form, .page-hero {
+                display: none;
             }
         }
     </style>
@@ -115,7 +156,7 @@
                 <a href="#declaration">Declaration</a>
             </div>
 
-            <!-- ARTICLE 1 - with GOLD BUBBLE -->
+            <!-- ARTICLE 1 -->
             <div id="article1" class="ethics-article">
                 <div class="ethics-badge">ARTICLE 1</div>
                 <h3 style="color: #0a2e1f; margin-bottom: 1rem;">PREAMBLE AND IDENTITY</h3>
@@ -231,20 +272,30 @@
                 <p><strong>10.4. Non-Discrimination:</strong> Equal opportunity for leadership positions; 50% women's representation target.</p>
             </div>
 
-            <!-- DECLARATION -->
-            <div id="declaration" class="ethics-article">
-                <div class="ethics-badge">DECLARATION</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">DECLARATION OF ACCEPTANCE</h3>
-                <p>I, _________________________, TSI-ID: ______________, serving as ____________________, hereby declare that:</p>
-                <ul>
-                    <li>I have read and understood this Code of Ethics</li>
-                    <li>I accept the biometric verification and blockchain monitoring protocols</li>
-                    <li>I understand that violations may result in removal, financial penalties, and criminal prosecution</li>
-                    <li>I commit to upholding the integrity of TSI resources and the sanctity of Nigeria's democratic process</li>
-                </ul>
-                <p><strong>Signature:</strong> _________________________ &nbsp;&nbsp; <strong>Date:</strong> _________________</p>
+            <!-- INTERACTIVE DECLARATION FORM (FILLABLE & PRINTABLE) -->
+            <div id="declaration" class="declaration-form">
+                <h3 style="color: #0a2e1f;">📝 OFFICIAL DECLARATION OF ACCEPTANCE</h3>
+                <p>Fill out this form and click PRINT to generate your official Code of Ethics declaration</p>
+                
+                <div class="form-row">
+                    <input type="text" id="ethicsFullName" placeholder="Full Name">
+                    <input type="text" id="ethicsTsiId" placeholder="TSI ID (if known)">
+                </div>
+                <div class="form-row">
+                    <input type="text" id="ethicsPosition" placeholder="Position/Role">
+                    <input type="text" id="ethicsState" placeholder="State">
+                </div>
+                <div class="form-row">
+                    <input type="text" id="ethicsLga" placeholder="LGA/Ward">
+                    <input type="date" id="ethicsDate">
+                </div>
+                <div class="form-row">
+                    <input type="text" id="ethicsSignature" placeholder="Digital Signature (Type your name)">
+                </div>
+                <button class="print-btn" onclick="printEthicsDeclaration()">🖨️ Print Declaration</button>
             </div>
 
+            <!-- CERTIFICATION -->
             <div class="certification-box" style="background: #e8f5e9; padding: 1.5rem; border-radius: 12px; margin-top: 2rem; text-align: center;">
                 <p><strong>George Ekpungu, Esq., PhD, MFR</strong><br>National Coordinator</p>
                 <p><em>This Code is certified by the National Coordinator and Board of Trustees as the governing ethical framework for TSI operations.</em></p>
@@ -285,5 +336,78 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        function printEthicsDeclaration() {
+            const fullName = document.getElementById('ethicsFullName')?.value || '_________________';
+            const tsiId = document.getElementById('ethicsTsiId')?.value || '_________________';
+            const position = document.getElementById('ethicsPosition')?.value || '_________________';
+            const state = document.getElementById('ethicsState')?.value || '_________________';
+            const lga = document.getElementById('ethicsLga')?.value || '_________________';
+            const date = document.getElementById('ethicsDate')?.value || new Date().toLocaleDateString();
+            const signature = document.getElementById('ethicsSignature')?.value || '_________________';
+            
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>TSI Code of Ethics - Declaration of Acceptance</title>
+                    <style>
+                        body { font-family: 'Times New Roman', serif; padding: 40px; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+                        .header { text-align: center; border-bottom: 2px solid #0a2e1f; padding-bottom: 20px; margin-bottom: 30px; }
+                        .header h1 { color: #0a2e1f; margin: 0; }
+                        .header p { margin: 5px 0; }
+                        .declaration-text { margin: 30px 0; }
+                        .signature-line { border-top: 1px solid #000; width: 250px; margin-top: 5px; }
+                        .signature-row { margin: 40px 0; }
+                        .footer { margin-top: 50px; text-align: center; font-size: 12px; border-top: 1px solid #ccc; padding-top: 20px; }
+                        @media print {
+                            body { padding: 20px; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>TINUBU SOLIDARITY INITIATIVE (TSI)</h1>
+                        <p>Code of Ethics and Professional Conduct</p>
+                        <p>Declaration of Acceptance</p>
+                        <p><em>"Integrity in Mobilization, Transparency in Service"</em></p>
+                    </div>
+                    
+                    <div class="declaration-text">
+                        <p>I, <strong>${fullName}</strong>, TSI-ID: <strong>${tsiId}</strong>, serving as <strong>${position}</strong> in <strong>${state}</strong> / <strong>${lga}</strong>, hereby declare that:</p>
+                        
+                        <ul>
+                            <li>I have read and understood this Code of Ethics</li>
+                            <li>I accept the biometric verification and blockchain monitoring protocols</li>
+                            <li>I understand that violations may result in removal, financial penalties, and criminal prosecution</li>
+                            <li>I commit to upholding the integrity of TSI resources and the sanctity of Nigeria's democratic process</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="signature-row">
+                        <p><strong>Signature:</strong> ${signature}</p>
+                        <div class="signature-line"></div>
+                        <p><strong>Date:</strong> ${date}</p>
+                        <div class="signature-line"></div>
+                        <p><strong>Witness (LGA Coordinator):</strong> _________________________</p>
+                    </div>
+                    
+                    <div class="footer">
+                        <p>TSI Code of Ethics - Effective April 25, 2026 | Abuja, FCT, Nigeria</p>
+                        <p>This document is legally binding upon acceptance. Keep for your records.</p>
+                    </div>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.print();
+        }
+        
+        // Auto-fill today's date
+        const today = new Date().toISOString().split('T')[0];
+        const dateInput = document.getElementById('ethicsDate');
+        if (dateInput) dateInput.value = today;
+    </script>
 </body>
 </html>
