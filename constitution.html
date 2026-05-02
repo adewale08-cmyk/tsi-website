@@ -6,28 +6,37 @@
     <title>Constitution | TSI</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* UNIQUE CLASS NAMES - NO CONFLICT WITH ETHICS PAGE */
+        /* FORCE CONSTITUTION HEADER TO FRONT - PREVENT STACKING */
         .consti-header {
             background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 100%);
             color: white;
             text-align: center;
             padding: 60px 20px;
             margin: 0;
+            position: relative;
+            z-index: 100;
+            display: block;
         }
         .consti-header h1 {
             font-size: 48px;
             margin: 0;
             font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            z-index: 101;
         }
         .consti-header p {
             font-size: 18px;
             margin-top: 10px;
             opacity: 0.9;
+            position: relative;
+            z-index: 101;
         }
         .consti-header small {
             font-size: 14px;
             display: block;
             margin-top: 5px;
+            position: relative;
+            z-index: 101;
         }
         .consti-article {
             background: white;
@@ -36,6 +45,8 @@
             margin-bottom: 1.5rem;
             border-left: 4px solid #ffd700;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 1;
         }
         .consti-badge {
             display: inline-block;
@@ -53,6 +64,8 @@
             padding: 1.5rem;
             background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             border-radius: 20px;
+            position: relative;
+            z-index: 1;
         }
         .consti-btn {
             display: inline-block;
@@ -74,6 +87,14 @@
             border-radius: 16px;
             text-align: center;
             margin-top: 1rem;
+        }
+        /* Clear any floating/stacking from other pages */
+        body {
+            background: #fafafc;
+        }
+        .content-section {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
@@ -98,7 +119,7 @@
         </div>
     </header>
 
-    <!-- UNIQUE HEADER CLASS - WILL NOT CONFLICT WITH ETHICS PAGE -->
+    <!-- CONSTITUTION HEADER - PUSHED TO FRONT WITH Z-INDEX -->
     <div class="consti-header">
         <h1>THE CONSTITUTION</h1>
         <p>Tinubu Solidarity Initiative (TSI) - Supreme Governing Document</p>
