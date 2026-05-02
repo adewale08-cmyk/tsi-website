@@ -6,12 +6,14 @@
     <title>Constitution | TSI Governing Document</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Constitution page specific styles - INDEPENDENT of Ethics page */
         .constitution-article {
             background: white;
             border-radius: 20px;
             padding: 2rem;
             margin-bottom: 1.5rem;
             border-left: 4px solid #ffd700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .constitution-badge {
             display: inline-block;
@@ -24,25 +26,21 @@
             margin-bottom: 0.75rem;
             letter-spacing: 0.5px;
         }
-        .declaration-form {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-top: 2rem;
-            border: 2px solid #ffd700;
+        .constitution-header {
+            background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 100%);
+            color: white;
             text-align: center;
+            padding: 4rem 0;
+            position: relative;
         }
-        .declaration-form input {
-            width: 100%;
-            padding: 0.8rem;
-            border-radius: 12px;
-            border: 1px solid #ddd;
+        .constitution-header h1 {
+            font-size: 3rem;
             margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
         }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+        .constitution-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
         .download-section {
             text-align: center;
@@ -63,14 +61,26 @@
             width: 200px;
             margin: 0.5rem auto;
         }
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+            color: #0a2e1f;
+            padding: 0.9rem 2.2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
-        @media print {
-            header, nav, footer, .download-section, .declaration-form, .page-hero {
-                display: none;
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.3);
+        }
+        @media (max-width: 768px) {
+            .constitution-header h1 {
+                font-size: 2rem;
+            }
+            .constitution-article {
+                padding: 1rem;
             }
         }
     </style>
@@ -96,14 +106,14 @@
         </div>
     </header>
 
-    <!-- CONSTITUTION HEADER -->
-    <section class="page-hero">
+    <!-- CONSTITUTION HEADER - STANDALONE (NOT DEPENDENT ON ANY OTHER PAGE) -->
+    <div class="constitution-header">
         <div class="container">
             <h1>THE CONSTITUTION</h1>
             <p>Tinubu Solidarity Initiative (TSI) - Supreme Governing Document</p>
             <p style="font-size: 0.9rem; margin-top: 0.5rem;">Adopted April 19, 2026 | Abuja, FCT, Nigeria</p>
         </div>
-    </section>
+    </div>
 
     <section class="content-section">
         <div class="container">
@@ -112,7 +122,7 @@
             <div class="download-section">
                 <h3 style="color: #0a2e1f; margin-bottom: 0.5rem;">📄 Official Constitution Document</h3>
                 <p style="margin-bottom: 1rem;">Download the complete Constitution of the Tinubu Solidarity Initiative</p>
-                <a href="TSI_CONSTITUTION.pdf" class="btn btn-primary" download>⬇️ Download Full Constitution (PDF)</a>
+                <a href="TSI_CONSTITUTION.pdf" class="btn-download" download>⬇️ Download Full Constitution (PDF)</a>
             </div>
 
             <!-- PREAMBLE -->
@@ -122,7 +132,6 @@
                 <p>Recognizing the importance of civic participation in governance in Nigeria, we commit ourselves to mobilizing citizens, promoting transparency, and fostering unity across ethnic, religious, and social divides.</p>
                 <p>We affirm our dedication to empowering youth and women, advancing community development, and supporting leaders who embody integrity and accountability.</p>
                 <p>In pursuit of these ideals, we pledge to uphold the rule of law, respect human rights, and work peacefully to strengthen democratic institutions.</p>
-                <p>This Constitution shall serve as the foundation of our collective efforts, ensuring that our actions remain guided by fairness, inclusivity, and the unwavering commitment to the progress of our nation.</p>
             </div>
 
             <!-- ARTICLE 1 -->
@@ -130,6 +139,8 @@
                 <div class="constitution-badge">ARTICLE 1</div>
                 <h2 style="color: #0a2e1f; margin-bottom: 1rem;">NAME, STATUS, HEADQUARTERS, AND IDENTITY</h2>
                 <p>The Association shall be known as <strong>TINUBU SOLIDARITY INITIATIVE</strong> (hereinafter referred to as "THE ASSOCIATION").</p>
+                <p><strong>Legal Status:</strong> The Association shall operate as a voluntary, non-governmental and non-profit/non-political support Association in Nigeria.</p>
+                <p><strong>Headquarters:</strong> The National Headquarters shall be situate in Nigeria. The Association may establish State, Local Government, Ward, and Community Chapters across the Country.</p>
                 <p><strong>Motto:</strong> IN PURSUIT OF THE RENEWED HOPE AGENDA, GOOD GOVERNANCE TOWARDS NIGERIA NATIONHOOD AND SURVIVAL</p>
                 <p><strong>Guiding Principles:</strong> Democracy and rule of law, Inclusivity, Transparency and accountability, Peaceful mobilization.</p>
             </div>
@@ -139,7 +150,7 @@
                 <div class="constitution-badge">ARTICLE 2</div>
                 <h2 style="color: #0a2e1f; margin-bottom: 1rem;">VISION, MISSION AND OBJECTIVES</h2>
                 <p><strong>Vision:</strong> To promote civic engagement, democratic participation, and good governance in Nigeria.</p>
-                <p><strong>Mission:</strong> To mobilize citizens towards shared democratic values and national development goals.</p>
+                <p><strong>Mission:</strong> To mobilize citizens towards shared democratic values and national development goals. To promote political awareness and civic education.</p>
                 <p><strong>Objectives:</strong> Political Mobilization, Civic Education, Advocacy, Youth & Women Empowerment, Community Development, Unity & Inclusivity, International Collaboration.</p>
             </div>
 
@@ -148,7 +159,7 @@
                 <div class="constitution-badge">ARTICLE 3</div>
                 <h2 style="color: #0a2e1f; margin-bottom: 1rem;">MEMBERSHIP</h2>
                 <p><strong>Eligibility:</strong> Open to all Nigerian citizens aged 18 years and above.</p>
-                <p><strong>Categories:</strong> Founding, Ordinary, Student, Honorary, Associate Members.</p>
+                <p><strong>Categories:</strong> Founding Members, Ordinary Members, Student Members, Honorary Members, Associate Members.</p>
                 <p><strong>Rights:</strong> Vote and be voted for, participate in meetings, access training.</p>
                 <p><strong>Duties:</strong> Uphold Constitution, pay dues, participate actively, maintain discipline.</p>
             </div>
@@ -192,10 +203,10 @@
                 <p>Two-thirds majority of General Assembly required. 30 days' notice required.</p>
             </div>
 
-            <!-- ARTICLES 9-17 SUMMARY -->
+            <!-- ARTICLES 9-16 -->
             <div class="constitution-article">
-                <div class="constitution-badge">ARTICLES 9-17</div>
-                <h2 style="color: #0a2e1f; margin-bottom: 1rem;">DISSOLUTION, INTERPRETATION, SUPREMACY & MISCELLANEOUS</h2>
+                <div class="constitution-badge">ARTICLES 9-16</div>
+                <h2 style="color: #0a2e1f; margin-bottom: 1rem;">DISSOLUTION, INTERPRETATION, SUPREMACY & TRANSITIONAL PROVISIONS</h2>
                 <p><strong>Dissolution:</strong> Two-thirds majority required. Assets go to charity.</p>
                 <p><strong>Conflict Resolution:</strong> Mediation → Arbitration → General Assembly.</p>
                 <p><strong>Oath of Office:</strong> All officers must take oath before assuming duties.</p>
@@ -212,6 +223,8 @@
                     <p><strong>Adopted this 19th day of April, 2026, at Abuja, FCT, Nigeria</strong></p>
                     <p><strong>President/Coordinator:</strong> _________________________</p>
                     <div class="signatory-line"></div>
+                    <p><strong>Vice President:</strong> _________________________</p>
+                    <div class="signatory-line"></div>
                     <p><strong>Secretary-General:</strong> _________________________</p>
                     <div class="signatory-line"></div>
                     <p><strong>Treasurer:</strong> _________________________</p>
@@ -222,29 +235,9 @@
                 </div>
             </div>
 
-            <!-- INTERACTIVE DECLARATION FORM -->
-            <div class="declaration-form" id="declarationForm">
-                <h3 style="color: #0a2e1f;">📝 OFFICIAL DECLARATION OF ACCEPTANCE</h3>
-                <p>Fill out this form and click PRINT to generate your official declaration</p>
-                
-                <div class="form-row">
-                    <input type="text" id="fullName" placeholder="Full Name">
-                    <input type="text" id="position" placeholder="Position/Role">
-                </div>
-                <div class="form-row">
-                    <input type="text" id="state" placeholder="State">
-                    <input type="text" id="lga" placeholder="LGA/Ward">
-                </div>
-                <div class="form-row">
-                    <input type="date" id="declarationDate">
-                    <input type="text" id="signature" placeholder="Digital Signature (Type your name)">
-                </div>
-                <button onclick="printDeclaration()" style="margin-top: 1rem; background: #0a2e1f; color: white; border: none; padding: 0.8rem 2rem; border-radius: 40px; cursor: pointer; font-weight: 600;">🖨️ Print Declaration</button>
-            </div>
-
             <!-- DOWNLOAD BUTTON 2 -->
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="TSI_CONSTITUTION.pdf" class="btn btn-primary" download>⬇️ Download Full Constitution (PDF)</a>
+                <a href="TSI_CONSTITUTION.pdf" class="btn-download" download>⬇️ Download Full Constitution (PDF)</a>
             </div>
 
         </div>
@@ -281,54 +274,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        function printDeclaration() {
-            const fullName = document.getElementById('fullName')?.value || '_________________';
-            const position = document.getElementById('position')?.value || '_________________';
-            const state = document.getElementById('state')?.value || '_________________';
-            const lga = document.getElementById('lga')?.value || '_________________';
-            const date = document.getElementById('declarationDate')?.value || new Date().toLocaleDateString();
-            const signature = document.getElementById('signature')?.value || '_________________';
-            
-            const printWindow = window.open('', '_blank');
-            printWindow.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>TSI Declaration of Acceptance</title>
-                    <style>
-                        body { font-family: 'Times New Roman', serif; padding: 40px; max-width: 800px; margin: 0 auto; line-height: 1.6; }
-                        .header { text-align: center; border-bottom: 2px solid #0a2e1f; padding-bottom: 20px; margin-bottom: 30px; }
-                        .header h1 { color: #0a2e1f; margin: 0; }
-                        .signature-line { border-top: 1px solid #000; width: 250px; margin-top: 5px; }
-                        .footer { margin-top: 50px; text-align: center; font-size: 12px; border-top: 1px solid #ccc; padding-top: 20px; }
-                    </style>
-                </head>
-                <body>
-                    <div class="header">
-                        <h1>TINUBU SOLIDARITY INITIATIVE (TSI)</h1>
-                        <p>Declaration of Acceptance - Constitution</p>
-                    </div>
-                    <p>I, <strong>${fullName}</strong>, serving as <strong>${position}</strong> in <strong>${state}</strong> / <strong>${lga}</strong>, hereby declare that I have read and understood the TSI Constitution and Code of Ethics, and I commit to upholding the integrity of TSI resources and the sanctity of Nigeria's democratic process.</p>
-                    <div style="margin-top: 40px;">
-                        <p><strong>Signature:</strong> ${signature}</p>
-                        <div class="signature-line"></div>
-                        <p><strong>Date:</strong> ${date}</p>
-                        <div class="signature-line"></div>
-                    </div>
-                    <div class="footer">
-                        <p>TSI Constitution - Adopted April 19, 2026 | Abuja, FCT, Nigeria</p>
-                    </div>
-                </body>
-                </html>
-            `);
-            printWindow.document.close();
-            printWindow.print();
-        }
-        
-        const today = new Date().toISOString().split('T')[0];
-        const dateInput = document.getElementById('declarationDate');
-        if (dateInput) dateInput.value = today;
-    </script>
 </body>
 </html>
