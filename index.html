@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSI | Renewed Hope Delivered - Tinubu Solidarity Initiative</title>
+    <title>TSI | Renewed Hope Delivered</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,6 +27,7 @@
         </div>
     </header>
 
+    <!-- HERO SECTION - FIXED LINE BREAK + INTERACTIVE BACKGROUND -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -133,7 +134,6 @@
                         <li><a href="constitution.html">Constitution</a></li>
                         <li><a href="ethics.html">Code of Ethics</a></li>
                         <li><a href="join.html">Join TSI</a></li>
-                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -141,7 +141,6 @@
                     <p>CA 14, Jasmine Close</p>
                     <p>D'Mayor Estate, APO District</p>
                     <p>Abuja, FCT, Nigeria</p>
-                    <p>Email: info@tinubusolidarity.org</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -151,5 +150,36 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Interactive animated particles for hero section
+        (function() {
+            const hero = document.querySelector('.hero');
+            if (!hero) return;
+            
+            // Create floating particles
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 6 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.bottom = '-' + Math.random() * 100 + 'px';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = Math.random() * 6 + 4 + 's';
+                particle.style.opacity = Math.random() * 0.5 + 0.2;
+                hero.appendChild(particle);
+            }
+            
+            // Mouse movement effect
+            hero.addEventListener('mousemove', function(e) {
+                const rect = hero.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                hero.style.setProperty('--mouse-x', x + '%');
+                hero.style.setProperty('--mouse-y', y + '%');
+            });
+        })();
+    </script>
 </body>
 </html>
