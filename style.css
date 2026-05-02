@@ -112,9 +112,9 @@ nav a:hover {
     cursor: pointer;
 }
 
-  /* Hero Section - Interactive Animated Background */
+/* Hero Section - Fixed Circular Background */
 .hero {
-    background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 50%, #0a2e1f 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
     color: white;
     padding: 6rem 0;
     text-align: center;
@@ -123,74 +123,6 @@ nav a:hover {
     min-height: 500px;
     display: flex;
     align-items: center;
-}
-
-/* Animated gradient overlay */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(255,215,0,0.15) 0%, transparent 50%);
-    animation: pulseGlow 4s ease-in-out infinite;
-}
-
-/* Second animated layer */
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 80% 50%, rgba(255,215,0,0.1) 0%, transparent 50%);
-    animation: pulseGlow 4s ease-in-out infinite reverse;
-}
-
-@keyframes pulseGlow {
-    0%, 100% {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
-}
-
-/* Floating particles */
-.hero .particle {
-    position: absolute;
-    background: rgba(255, 215, 0, 0.6);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: floatParticle 8s infinite ease-in-out;
-}
-
-@keyframes floatParticle {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.8;
-    }
-    90% {
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(-100px) translateX(30px);
-        opacity: 0;
-    }
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 /* Circular floating animation - no rectangular box */
@@ -266,16 +198,12 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin-bottom: 1.2rem;
-    line-height: 1.3;
-    white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 1.8rem;
-        white-space: normal;
+    line-height: 1.2;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .highlight {
