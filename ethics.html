@@ -3,142 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code of Ethics | TSI Professional Conduct</title>
+    <title>Code of Ethics | TSI</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* UNIQUE ETHICS PAGE CLASSES - WILL NOT LEAK TO CONSTITUTION */
-        .ethics-wrapper {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 40px;
+        /* ETHICS PAGE - COMPLETELY ISOLATED STYLES */
+        .ethics-hero {
+            background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
         }
-        .ethics-article {
+        .ethics-hero h1 {
+            font-size: 48px;
+            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .ethics-hero p {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        .ethics-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .ethics-card {
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #ffd700;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 24px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border-left: 5px solid #ffd700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .ethics-badge {
             display: inline-block;
             background: #ffd700;
             color: #0a2e1f;
-            padding: 0.25rem 0.9rem;
-            border-radius: 30px;
-            font-size: 0.75rem;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 12px;
             font-weight: 700;
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.5px;
+            margin-bottom: 16px;
         }
-        .ethics-nav {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .ethics-nav a {
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            text-decoration: none;
+        .ethics-card h3 {
             color: #0a2e1f;
-            font-size: 0.85rem;
-            border: 1px solid #ddd;
+            font-size: 22px;
+            margin-bottom: 16px;
         }
-        .ethics-nav a:hover {
-            background: #ffd700;
-            border-color: #ffd700;
+        .ethics-card p {
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .ethics-card ul, .ethics-card ol {
+            margin-left: 24px;
+            margin-bottom: 12px;
         }
         .ethics-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1rem 0;
+            margin: 16px 0;
         }
         .ethics-table th, .ethics-table td {
             border: 1px solid #ddd;
-            padding: 0.75rem;
+            padding: 12px;
             text-align: left;
         }
         .ethics-table th {
             background: #0a2e1f;
             color: white;
         }
-        .ethics-declaration {
+        .ethics-form {
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-top: 2rem;
+            border-radius: 24px;
+            padding: 32px;
+            margin-top: 32px;
             border: 2px solid #ffd700;
+        }
+        .ethics-form h3 {
             text-align: center;
+            margin-bottom: 20px;
+            color: #0a2e1f;
         }
-        .ethics-declaration input, .ethics-declaration select {
-            width: 100%;
-            padding: 0.8rem;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-            margin-bottom: 0.5rem;
-            font-family: 'Inter', sans-serif;
-        }
-        .ethics-form-row {
+        .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 16px;
         }
-        .ethics-print-btn {
-            margin-top: 1rem;
+        .ethics-form input, .ethics-form select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            font-family: 'Inter', sans-serif;
+        }
+        .ethics-form button {
+            margin-top: 20px;
             background: #0a2e1f;
             color: white;
             border: none;
-            padding: 0.8rem 2rem;
+            padding: 14px 28px;
             border-radius: 40px;
             cursor: pointer;
             font-weight: 600;
+            width: 100%;
         }
-        .ethics-print-btn:hover {
-            background: #1a4d33;
+        .ethics-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 16px;
         }
-        .ethics-certification {
+        .ethics-nav a {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #0a2e1f;
+            font-size: 14px;
+            border: 1px solid #ddd;
+        }
+        .ethics-nav a:hover {
+            background: #ffd700;
+        }
+        .ethics-cert {
             background: #e8f5e9;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-top: 2rem;
+            padding: 24px;
+            border-radius: 20px;
             text-align: center;
-        }
-        .ethics-hero {
-            background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 100%);
-            color: white;
-            text-align: center;
-            padding: 4rem 0;
-            position: relative;
-        }
-        .ethics-hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            font-family: 'Space Grotesk', sans-serif;
+            margin-top: 32px;
         }
         @media (max-width: 768px) {
-            .ethics-table {
-                font-size: 0.7rem;
-                display: block;
-                overflow-x: auto;
-            }
-            .ethics-form-row {
+            .form-grid {
                 grid-template-columns: 1fr;
             }
-            .ethics-wrapper {
-                padding: 0 20px;
-            }
             .ethics-hero h1 {
-                font-size: 1.8rem;
+                font-size: 32px;
             }
-        }
-        @media print {
-            header, nav, footer, .ethics-nav, .ethics-declaration, .ethics-hero {
-                display: none;
+            .ethics-table {
+                font-size: 12px;
+                display: block;
+                overflow-x: auto;
             }
         }
     </style>
@@ -164,193 +173,162 @@
         </div>
     </header>
 
-    <!-- ETHICS PAGE HEADER - UNIQUE CLASS -->
     <div class="ethics-hero">
-        <div class="container">
-            <h1>Code of Ethics and Professional Conduct</h1>
-            <p>"Integrity in Mobilization, Transparency in Service"</p>
-        </div>
+        <h1>Code of Ethics and Professional Conduct</h1>
+        <p>"Integrity in Mobilization, Transparency in Service"</p>
     </div>
 
-    <section class="content-section">
-        <div class="ethics-wrapper">
-            
-            <div class="ethics-nav">
-                <a href="#ethics-article1">Article 1</a>
-                <a href="#ethics-article2">Article 2</a>
-                <a href="#ethics-article3">Article 3</a>
-                <a href="#ethics-article4">Article 4</a>
-                <a href="#ethics-article5">Article 5</a>
-                <a href="#ethics-article6">Article 6</a>
-                <a href="#ethics-article7">Article 7</a>
-                <a href="#ethics-article8">Article 8</a>
-                <a href="#ethics-article9">Article 9</a>
-                <a href="#ethics-article10">Article 10</a>
-                <a href="#ethics-declaration">Declaration</a>
-            </div>
-
-            <!-- ARTICLE 1 -->
-            <div id="ethics-article1" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 1</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">PREAMBLE AND IDENTITY</h3>
-                <p><strong>1.1.</strong> The Tinubu Solidarity Initiative (TSI) is a national civic mobilization platform dedicated to advancing the Renewed Hope Agenda through lawful democratic participation, voter education, and grassroots engagement.</p>
-                <p><strong>1.2.</strong> This Code establishes binding standards for all members, officers, volunteers, and representatives across all tiers: National, Zonal, State, LGA, and Ward structures.</p>
-                <p><strong>1.3.</strong> By accepting appointment or membership, all persons agree to uphold this Code, the Constitution of the Federal Republic of Nigeria, the Electoral Act 2022 (as amended), and all applicable campaign finance regulations.</p>
-            </div>
-
-            <!-- ARTICLE 2 -->
-            <div id="ethics-article2" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 2</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">CORE VALUES AND FIDUCIARY DUTIES</h3>
-                <p><strong>2.1. Financial Integrity:</strong> Fiduciary responsibility over TSI operational resources with zero tolerance for misappropriation, ghost worker creation, or kickback schemes.</p>
-                <p><strong>2.2. Data Sovereignty:</strong> Protection of biometric data, voter information, and personal data of registrants under the Nigeria Data Protection Regulation (NDPR) 2019.</p>
-                <p><strong>2.3. Electoral Non-Violence:</strong> Absolute commitment to peaceful advocacy; prohibition of voter intimidation, ballot interference, or incitement to electoral violence.</p>
-                <p><strong>2.4. INEC Compliance:</strong> Strict adherence to Independent National Electoral Commission regulations.</p>
-                <p><strong>2.5. Transparency:</strong> Openness in expenditure tracking via blockchain systems and biometric verification protocols.</p>
-                <p><strong>2.6. Inclusivity:</strong> Equitable treatment of women (50% representation targets), youth (18-35), persons with disabilities, and all ethnic/religious groups.</p>
-            </div>
-
-            <!-- ARTICLE 3 -->
-            <div id="ethics-article3" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 3</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">FINANCIAL ETHICS AND BUDGET COMPLIANCE</h3>
-                <p><strong>3.1. Budget Fidelity:</strong> All expenditures must align with the approved budget allocations.</p>
-                <p><strong>3.2. Biometric Accountability:</strong> All recipients of stipends must be biometrically verified; no cash payments without fingerprint confirmation.</p>
-                <p><strong>3.3. Blockchain Transparency:</strong> All significant expenditures must be recorded on the Hyperledger ledger.</p>
-                <p><strong>3.4. Prohibition of Personal Enrichment:</strong> No officer shall award contracts to companies in which they or family members hold interest.</p>
-                <p><strong>3.5. Milestone-Based Integrity:</strong> No officer shall falsify registration numbers, event attendance figures, or milestone achievements.</p>
-                <p><strong>3.6. Audit Cooperation:</strong> All members must submit to periodic forensic audits.</p>
-            </div>
-
-            <!-- ARTICLE 4 -->
-            <div id="ethics-article4" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 4</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">DATA PROTECTION AND DIGITAL ETHICS</h3>
-                <p><strong>4.1. Biometric Data Protection:</strong> Fingerprint templates, facial recognition data, and NIN information shall be encrypted using AES-256 standards.</p>
-                <p><strong>4.2. Voter Privacy:</strong> PVC numbers, phone numbers, and demographic data shall not be used for unsolicited marketing.</p>
-                <p><strong>4.3. Digital Command Integrity:</strong> Social media managers shall label all sponsored content clearly as "TSI Promotional Material".</p>
-                <p><strong>4.4. Cybersecurity:</strong> No member shall share TSI database passwords or blockchain private keys.</p>
-            </div>
-
-            <!-- ARTICLE 5 -->
-            <div id="ethics-article5" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 5</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">ELECTORAL INTEGRITY AND NON-VIOLENCE</h3>
-                <p><strong>5.1. Peaceful Mobilization:</strong> TSI prohibits armed bodyguards, thuggery, intimidation, destruction of opposition materials, and incitement of religious or ethnic hatred.</p>
-                <p><strong>5.2. INEC Cooperation:</strong> Members shall assist, not obstruct, INEC officials during voter registration.</p>
-                <p><strong>5.3. Vote Buying Prohibition:</strong> Strict prohibition against distributing money or gifts contingent on voting preference.</p>
-                <p><strong>5.4. Accurate Representation:</strong> No member shall forge INEC registration slips or inflate voter registration numbers.</p>
-            </div>
-
-            <!-- ARTICLE 6 -->
-            <div id="ethics-article6" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 6</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">ORGANIZATIONAL CONDUCT AND HIERARCHY</h3>
-                <p><strong>6.1. Chain of Command:</strong> Ward Coordinators report to LGA Coordinators; no unauthorized parallel structures.</p>
-                <p><strong>6.2. Spokesperson Protocol:</strong> Only the National Coordinator and designated Directors may issue official statements.</p>
-                <p><strong>6.3. Asset Protection:</strong> TSI vehicles, motorcycles, and equipment remain Initiative property.</p>
-                <p><strong>6.4. Intellectual Property:</strong> The TSI logo and "Renewed Hope Agenda" branding are proprietary.</p>
-            </div>
-
-            <!-- ARTICLE 7 -->
-            <div id="ethics-article7" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 7</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">CONFLICT OF INTEREST AND DISCLOSURE</h3>
-                <p><strong>7.1. Financial Disclosure:</strong> All National Command members and State Coordinators must declare ownership interests in companies bidding for TSI contracts.</p>
-                <p><strong>7.2. Recusal:</strong> Officers must recuse themselves from decisions where personal interests conflict.</p>
-                <p><strong>7.3. Post-Service Restrictions:</strong> Former TSI officers may not lobby for contracts with the Initiative for 12 months after leaving office.</p>
-            </div>
-
-            <!-- ARTICLE 8 -->
-            <div id="ethics-article8" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 8</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">WHISTLEBLOWING AND PROTECTION</h3>
-                <p><strong>8.1. Mandatory Reporting:</strong> Members must report suspected ghost workers, financial misappropriation, violence, or data breaches.</p>
-                <p><strong>8.2. Reporting Channels:</strong> Ethics Hotline, Blockchain Tip Line via TSI App, or Direct to Audit Firm.</p>
-                <p><strong>8.3. Anti-Retaliation:</strong> Any member threatening, demoting, or removing a whistleblower faces immediate expulsion.</p>
-                <p><strong>8.4. Rewards:</strong> Members whose reports lead to recovery of stolen funds may receive a percentage of recovered amount.</p>
-            </div>
-
-            <!-- ARTICLE 9 -->
-            <div id="ethics-article9" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 9</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">DISCIPLINARY PROCEDURES AND SANCTIONS</h3>
-                <p><strong>9.1. Ethics Committee:</strong> Standing committee comprising Board of Trustees representative, National Command representative, External legal counsel, and 2 Ward Coordinator representatives.</p>
-                
-                <table class="ethics-table">
-                    <thead>
-                        <tr><th>Violation</th><th>Evidence Standard</th><th>Sanction</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Minor budget variance</td><td>Dashboard flag</td><td>Written warning + retraining</td></tr>
-                        <tr><td>Ghost worker creation</td><td>Biometric mismatch</td><td>Immediate removal + EFCC referral</td></tr>
-                        <tr><td>Data breach</td><td>Unauthorized access logs</td><td>Suspension + NDPR penalty</td></tr>
-                        <tr><td>Violence at event</td><td>Video evidence + police report</td><td>Expulsion + ban</td></tr>
-                        <tr><td>Falsifying registration numbers</td><td>INEC data mismatch</td><td>Removal + clawback of stipends</td></tr>
-                        <tr><td>Conflict of interest</td><td>Undisclosed family contracts</td><td>Suspension + public censure</td></tr>
-                        <tr><td>Vote buying</td><td>Bank transfer records</td><td>Immediate expulsion + INEC notification</td></tr>
-                    </tbody>
-                </table>
-                <p><strong>9.4. Appeal Process:</strong> Sanctioned members may appeal to the Board of Trustees within 7 days.</p>
-                <p><strong>9.5. Clawback Provisions:</strong> Members found guilty of financial misconduct must repay misappropriated funds with interest.</p>
-            </div>
-
-            <!-- ARTICLE 10 -->
-            <div id="ethics-article10" class="ethics-article">
-                <div class="ethics-badge">ARTICLE 10</div>
-                <h3 style="color: #0a2e1f; margin-bottom: 1rem;">VOLUNTEER WELFARE AND PROTECTION</h3>
-                <p><strong>10.1. Safety First:</strong> TSI shall not deploy volunteers to violent hotspots without security escort.</p>
-                <p><strong>10.2. Insurance Coverage:</strong> All volunteers covered by group personal accident insurance.</p>
-                <p><strong>10.3. Stipend Protection:</strong> Biometrically-verified volunteers receive approved stipends without deductions.</p>
-                <p><strong>10.4. Non-Discrimination:</strong> Equal opportunity for leadership positions; 50% women's representation target.</p>
-            </div>
-
-            <!-- INTERACTIVE DECLARATION -->
-            <div id="ethics-declaration" class="ethics-declaration">
-                <h3 style="color: #0a2e1f;">📝 OFFICIAL DECLARATION OF ACCEPTANCE</h3>
-                <p>Fill out this form and click PRINT to generate your official Code of Ethics declaration</p>
-                
-                <div class="ethics-form-row">
-                    <input type="text" id="ethicsFullName" placeholder="Full Name">
-                    <input type="text" id="ethicsTsiId" placeholder="TSI ID (if known)">
-                </div>
-                <div class="ethics-form-row">
-                    <select id="ethicsPosition">
-                        <option value="">Select Position/Role</option>
-                        <option value="National Coordinator">National Coordinator</option>
-                        <option value="Deputy National Coordinator">Deputy National Coordinator</option>
-                        <option value="Secretary-General">Secretary-General</option>
-                        <option value="National Treasurer">National Treasurer</option>
-                        <option value="National PRO">National PRO</option>
-                        <option value="State Coordinator">State Coordinator</option>
-                        <option value="LGA Coordinator">LGA Coordinator</option>
-                        <option value="Ward Coordinator">Ward Coordinator</option>
-                        <option value="Volunteer">Volunteer</option>
-                        <option value="Ordinary Member">Ordinary Member</option>
-                        <option value="Student Member">Student Member</option>
-                        <option value="Board of Trustees Member">Board of Trustees Member</option>
-                    </select>
-                    <input type="text" id="ethicsState" placeholder="State">
-                </div>
-                <div class="ethics-form-row">
-                    <input type="text" id="ethicsLga" placeholder="LGA/Ward">
-                    <input type="date" id="ethicsDate">
-                </div>
-                <div class="ethics-form-row">
-                    <input type="text" id="ethicsSignature" placeholder="Digital Signature (Type your full name)">
-                </div>
-                <button class="ethics-print-btn" onclick="printEthicsDeclaration()">🖨️ Print Declaration</button>
-            </div>
-
-            <!-- CERTIFICATION -->
-            <div class="ethics-certification">
-                <p><strong>George Ekpungu, Esq., PhD, MFR</strong><br>National Coordinator</p>
-                <p><em>This Code is certified by the National Coordinator and Board of Trustees as the governing ethical framework for TSI operations.</em></p>
-                <p><strong>Date of Effect:</strong> April 25, 2026</p>
-            </div>
-
+    <div class="ethics-section">
+        
+        <div class="ethics-nav">
+            <a href="#art1">Article 1</a>
+            <a href="#art2">Article 2</a>
+            <a href="#art3">Article 3</a>
+            <a href="#art4">Article 4</a>
+            <a href="#art5">Article 5</a>
+            <a href="#art6">Article 6</a>
+            <a href="#art7">Article 7</a>
+            <a href="#art8">Article 8</a>
+            <a href="#art9">Article 9</a>
+            <a href="#art10">Article 10</a>
         </div>
-    </section>
+
+        <!-- ARTICLE 1 -->
+        <div id="art1" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 1</div>
+            <h3>PREAMBLE AND IDENTITY</h3>
+            <p><strong>1.1.</strong> The Tinubu Solidarity Initiative (TSI) is a national civic mobilization platform dedicated to advancing the Renewed Hope Agenda through lawful democratic participation, voter education, and grassroots engagement.</p>
+            <p><strong>1.2.</strong> This Code establishes binding standards for all members, officers, volunteers, and representatives across all tiers.</p>
+            <p><strong>1.3.</strong> By accepting appointment or membership, all persons agree to uphold this Code, the Constitution of Nigeria, and the Electoral Act 2022.</p>
+        </div>
+
+        <!-- ARTICLE 2 -->
+        <div id="art2" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 2</div>
+            <h3>CORE VALUES AND FIDUCIARY DUTIES</h3>
+            <p><strong>2.1. Financial Integrity:</strong> Zero tolerance for misappropriation, ghost workers, or kickbacks.</p>
+            <p><strong>2.2. Data Sovereignty:</strong> Protection of biometric and voter data under NDPR 2019.</p>
+            <p><strong>2.3. Electoral Non-Violence:</strong> Prohibition of voter intimidation, ballot interference, or incitement to violence.</p>
+            <p><strong>2.4. Inclusivity:</strong> 50% women's representation target, youth inclusion, disability access.</p>
+        </div>
+
+        <!-- ARTICLE 3 -->
+        <div id="art3" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 3</div>
+            <h3>FINANCIAL ETHICS</h3>
+            <p><strong>3.1. Budget Fidelity:</strong> All expenditures must align with approved budget.</p>
+            <p><strong>3.2. Biometric Accountability:</strong> No cash payments without fingerprint confirmation.</p>
+            <p><strong>3.3. Prohibition of Personal Enrichment:</strong> No officer shall award contracts to family-owned businesses.</p>
+            <p><strong>3.4. Audit Cooperation:</strong> All members must submit to periodic forensic audits.</p>
+        </div>
+
+        <!-- ARTICLE 4 -->
+        <div id="art4" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 4</div>
+            <h3>DATA PROTECTION</h3>
+            <p><strong>4.1.</strong> Biometric data shall be encrypted using AES-256 standards.</p>
+            <p><strong>4.2.</strong> Voter information shall not be used for unsolicited marketing.</p>
+            <p><strong>4.3.</strong> No member shall share TSI database passwords or blockchain private keys.</p>
+        </div>
+
+        <!-- ARTICLE 5 -->
+        <div id="art5" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 5</div>
+            <h3>ELECTORAL INTEGRITY</h3>
+            <p><strong>5.1.</strong> TSI prohibits armed bodyguards, thuggery, and destruction of opposition materials.</p>
+            <p><strong>5.2.</strong> Members shall assist INEC officials, not obstruct them.</p>
+            <p><strong>5.3.</strong> Vote buying is strictly prohibited.</p>
+        </div>
+
+        <!-- ARTICLE 6 -->
+        <div id="art6" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 6</div>
+            <h3>ORGANIZATIONAL CONDUCT</h3>
+            <p><strong>6.1.</strong> Ward Coordinators report to LGA Coordinators; no parallel structures.</p>
+            <p><strong>6.2.</strong> Only the National Coordinator may issue official statements.</p>
+            <p><strong>6.3.</strong> TSI assets remain Initiative property.</p>
+        </div>
+
+        <!-- ARTICLE 7 -->
+        <div id="art7" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 7</div>
+            <h3>CONFLICT OF INTEREST</h3>
+            <p><strong>7.1.</strong> Members must declare ownership in companies bidding for TSI contracts.</p>
+            <p><strong>7.2.</strong> Recusal required where personal interests conflict.</p>
+        </div>
+
+        <!-- ARTICLE 8 -->
+        <div id="art8" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 8</div>
+            <h3>WHISTLEBLOWING</h3>
+            <p><strong>8.1.</strong> Mandatory reporting of ghost workers, financial misappropriation, or violence.</p>
+            <p><strong>8.2.</strong> Anti-retaliation protection for whistleblowers.</p>
+        </div>
+
+        <!-- ARTICLE 9 -->
+        <div id="art9" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 9</div>
+            <h3>DISCIPLINARY PROCEDURES</h3>
+            <table class="ethics-table">
+                <thead>
+                    <tr><th>Violation</th><th>Sanction</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ghost worker creation</td><td>Immediate removal + EFCC referral</td></tr>
+                    <tr><td>Data breach</td><td>Suspension + NDPR penalty</td></tr>
+                    <tr><td>Violence at event</td><td>Expulsion + ban</td></tr>
+                    <tr><td>Vote buying</td><td>Immediate expulsion + INEC notification</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ARTICLE 10 -->
+        <div id="art10" class="ethics-card">
+            <div class="ethics-badge">ARTICLE 10</div>
+            <h3>VOLUNTEER WELFARE</h3>
+            <p><strong>10.1.</strong> TSI shall not deploy volunteers to violent hotspots without security escort.</p>
+            <p><strong>10.2.</strong> All volunteers covered by group personal accident insurance.</p>
+            <p><strong>10.3.</strong> Equal opportunity for leadership; 50% women's representation target.</p>
+        </div>
+
+        <!-- DECLARATION FORM WITH RECORD SUBMISSION -->
+        <div class="ethics-form" id="declarationForm">
+            <h3>📝 OFFICIAL DECLARATION OF ACCEPTANCE</h3>
+            <p style="text-align: center; margin-bottom: 20px;">Fill out this form to generate your official declaration. Your information will be recorded.</p>
+            
+            <div class="form-grid">
+                <input type="text" id="fullName" placeholder="Full Name *" required>
+                <input type="text" id="tsiId" placeholder="TSI ID (if known)">
+                <select id="position">
+                    <option value="">Select Position/Role *</option>
+                    <option>National Coordinator</option>
+                    <option>Deputy National Coordinator</option>
+                    <option>Secretary-General</option>
+                    <option>State Coordinator</option>
+                    <option>LGA Coordinator</option>
+                    <option>Ward Coordinator</option>
+                    <option>Volunteer</option>
+                    <option>Ordinary Member</option>
+                    <option>Student Member</option>
+                    <option>Associate Member</option>
+                    <option>Board of Trustees Member</option>
+                </select>
+                <input type="text" id="state" placeholder="State *" required>
+                <input type="text" id="lga" placeholder="LGA/Ward">
+                <input type="date" id="declarationDate">
+                <input type="text" id="signature" placeholder="Digital Signature (Type full name) *" required>
+            </div>
+            <button onclick="submitAndPrint()">✅ SUBMIT DECLARATION & PRINT</button>
+            <p style="font-size: 12px; text-align: center; margin-top: 15px; color: #666;">Your declaration will be recorded and you can print a copy for your records.</p>
+        </div>
+
+        <div class="ethics-cert">
+            <p><strong>George Ekpungu, Esq., PhD, MFR</strong><br>National Coordinator</p>
+            <p><em>This Code is certified by the National Coordinator and Board of Trustees.</em></p>
+            <p><strong>Effective: April 25, 2026</strong></p>
+        </div>
+
+    </div>
 
     <footer>
         <div class="container">
@@ -365,7 +343,6 @@
                         <li><a href="achievements.html">Achievements</a></li>
                         <li><a href="vision.html">2027 Vision</a></li>
                         <li><a href="constitution.html">Constitution</a></li>
-                        <li><a href="ethics.html">Code of Ethics</a></li>
                         <li><a href="join.html">Join TSI</a></li>
                     </ul>
                 </div>
@@ -382,54 +359,106 @@
 
     <script src="script.js"></script>
     <script>
-        function printEthicsDeclaration() {
-            const fullName = document.getElementById('ethicsFullName')?.value || '_________________';
-            const tsiId = document.getElementById('ethicsTsiId')?.value || '_________________';
-            const positionSelect = document.getElementById('ethicsPosition');
-            const position = positionSelect?.options[positionSelect.selectedIndex]?.text || '_________________';
-            const state = document.getElementById('ethicsState')?.value || '_________________';
-            const lga = document.getElementById('ethicsLga')?.value || '_________________';
-            const date = document.getElementById('ethicsDate')?.value || new Date().toLocaleDateString();
-            const signature = document.getElementById('ethicsSignature')?.value || '_________________';
+        // Load existing records from localStorage
+        let registrations = JSON.parse(localStorage.getItem('tsi_registrations') || '[]');
+        
+        function saveRegistration(record) {
+            registrations.push({
+                ...record,
+                timestamp: new Date().toISOString(),
+                id: Date.now()
+            });
+            localStorage.setItem('tsi_registrations', JSON.stringify(registrations));
+            console.log('Registration saved. Total records:', registrations.length);
+        }
+        
+        function submitAndPrint() {
+            const fullName = document.getElementById('fullName')?.value;
+            const position = document.getElementById('position')?.value;
+            const state = document.getElementById('state')?.value;
+            const signature = document.getElementById('signature')?.value;
             
+            // Validate required fields
+            if (!fullName || !position || !state || !signature) {
+                alert('Please fill in all required fields (*)');
+                return;
+            }
+            
+            const record = {
+                fullName: fullName,
+                tsiId: document.getElementById('tsiId')?.value || 'N/A',
+                position: position,
+                state: state,
+                lga: document.getElementById('lga')?.value || 'N/A',
+                date: document.getElementById('declarationDate')?.value || new Date().toLocaleDateString(),
+                signature: signature
+            };
+            
+            // Save to localStorage
+            saveRegistration(record);
+            
+            // Generate print window
             const printWindow = window.open('', '_blank');
             printWindow.document.write(`
                 <!DOCTYPE html>
                 <html>
                 <head>
-                    <title>TSI Code of Ethics - Declaration</title>
+                    <title>TSI Declaration - ${record.fullName}</title>
                     <style>
                         body { font-family: 'Times New Roman', serif; padding: 40px; max-width: 800px; margin: 0 auto; }
                         .header { text-align: center; border-bottom: 2px solid #0a2e1f; margin-bottom: 30px; }
                         h1 { color: #0a2e1f; }
                         .signature-line { border-top: 1px solid #000; width: 250px; margin-top: 5px; }
+                        .record-id { background: #f0f0f0; padding: 10px; border-radius: 8px; font-size: 12px; margin-bottom: 20px; }
                     </style>
                 </head>
                 <body>
                     <div class="header">
                         <h1>TINUBU SOLIDARITY INITIATIVE</h1>
                         <p>Code of Ethics - Declaration of Acceptance</p>
+                        <p><em>"Integrity in Mobilization, Transparency in Service"</em></p>
                     </div>
-                    <p>I, <strong>${fullName}</strong>, TSI-ID: <strong>${tsiId}</strong>, serving as <strong>${position}</strong> in <strong>${state}</strong> / <strong>${lga}</strong>, hereby declare that I have read and understood this Code of Ethics and commit to upholding its principles.</p>
+                    <div class="record-id">
+                        <strong>Record ID:</strong> TSI-${record.id} | <strong>Date Recorded:</strong> ${new Date().toLocaleString()}
+                    </div>
+                    <p>I, <strong>${record.fullName}</strong>, TSI-ID: <strong>${record.tsiId}</strong>, serving as <strong>${record.position}</strong> in <strong>${record.state}</strong> / <strong>${record.lga}</strong>, hereby declare that I have read and understood the TSI Code of Ethics and commit to upholding its principles.</p>
                     <div style="margin-top: 40px;">
-                        <p><strong>Signature:</strong> ${signature}</p>
+                        <p><strong>Digital Signature:</strong> ${record.signature}</p>
                         <div class="signature-line"></div>
-                        <p><strong>Date:</strong> ${date}</p>
+                        <p><strong>Date:</strong> ${record.date}</p>
                         <div class="signature-line"></div>
                     </div>
                     <div style="margin-top: 50px; text-align: center; font-size: 12px;">
                         <p>TSI Code of Ethics - Effective April 25, 2026 | Abuja, Nigeria</p>
+                        <p>This is an official record. Keep for your files.</p>
                     </div>
                 </body>
                 </html>
             `);
             printWindow.document.close();
             printWindow.print();
+            
+            // Clear form after submission
+            alert(`✅ Declaration recorded for ${record.fullName}!\n\nTotal registrations: ${registrations.length}`);
+            
+            // Optional: clear form
+            document.getElementById('fullName').value = '';
+            document.getElementById('tsiId').value = '';
+            document.getElementById('position').value = '';
+            document.getElementById('state').value = '';
+            document.getElementById('lga').value = '';
+            document.getElementById('signature').value = '';
+            document.getElementById('declarationDate').value = new Date().toISOString().split('T')[0];
         }
         
+        // Set today's date
         const today = new Date().toISOString().split('T')[0];
-        const dateInput = document.getElementById('ethicsDate');
+        const dateInput = document.getElementById('declarationDate');
         if (dateInput) dateInput.value = today;
+        
+        // Display total registrations in console (for admin)
+        console.log('TSI Registration System Active');
+        console.log('Total registered members:', registrations.length);
     </script>
 </body>
 </html>
