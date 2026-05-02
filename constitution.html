@@ -6,47 +6,52 @@
     <title>Constitution | TSI</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* CONSTITUTION PAGE - COMPLETELY ISOLATED STYLES */
-        .constitution-page {
-            background: #fafafc;
-        }
-        .constitution-hero {
+        /* CONSTITUTION PAGE - COMPLETELY STANDALONE */
+        .const-hero {
             background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 100%);
             color: white;
             text-align: center;
             padding: 80px 20px;
             margin: 0;
+            position: relative;
+            z-index: 1;
         }
-        .constitution-hero h1 {
+        .const-hero h1 {
             font-size: 56px;
             margin: 0;
             font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -1px;
         }
-        .constitution-hero p {
+        .const-hero p {
             font-size: 20px;
             margin-top: 15px;
             opacity: 0.9;
         }
-        .constitution-hero small {
+        .const-hero small {
             font-size: 14px;
             display: block;
             margin-top: 10px;
             opacity: 0.7;
         }
-        .constitution-section {
+        .const-section {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
-        .constitution-card {
+        .const-card {
             background: white;
             border-radius: 24px;
             padding: 28px;
             margin-bottom: 24px;
             border-left: 5px solid #ffd700;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .constitution-badge {
+        .const-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+        }
+        .const-badge {
             display: inline-block;
             background: #ffd700;
             color: #0a2e1f;
@@ -57,34 +62,34 @@
             margin-bottom: 16px;
             letter-spacing: 0.5px;
         }
-        .constitution-card h2 {
+        .const-card h2 {
             color: #0a2e1f;
             font-size: 28px;
             margin-bottom: 16px;
             font-family: 'Space Grotesk', sans-serif;
         }
-        .constitution-card h3 {
+        .const-card h3 {
             color: #1a4d33;
             font-size: 18px;
             margin: 16px 0 8px 0;
         }
-        .constitution-card p {
+        .const-card p {
             color: #333;
             line-height: 1.7;
             margin-bottom: 12px;
         }
-        .constitution-card ul, .constitution-card ol {
+        .const-card ul, .const-card ol {
             margin-left: 24px;
             margin-bottom: 12px;
         }
-        .constitution-card li {
+        .const-card li {
             margin-bottom: 6px;
             color: #333;
         }
         .download-area {
             text-align: center;
             margin: 40px 0;
-            padding: 24px;
+            padding: 32px;
             background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             border-radius: 24px;
         }
@@ -98,14 +103,29 @@
             font-weight: 700;
             font-size: 16px;
             transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .download-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255,215,0,0.3);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+        }
+        @media (max-width: 768px) {
+            .const-hero h1 {
+                font-size: 32px;
+            }
+            .const-hero p {
+                font-size: 16px;
+            }
+            .const-card {
+                padding: 20px;
+            }
+            .const-card h2 {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
-<body class="constitution-page">
+<body>
     <header>
         <div class="container">
             <div class="logo">
@@ -121,19 +141,20 @@
                     <li><a href="ethics.html">Code of Ethics</a></li>
                     <li><a href="join.html">Join TSI</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admin.html">📊 Admin</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- CONSTITUTION HERO - COMPLETELY STANDALONE -->
-    <div class="constitution-hero">
+    <!-- STANDALONE CONSTITUTION HERO - NOT SHARED WITH ETHICS -->
+    <div class="const-hero">
         <h1>THE CONSTITUTION</h1>
         <p>Tinubu Solidarity Initiative (TSI) - Supreme Governing Document</p>
         <small>Adopted April 19, 2026 | Abuja, FCT, Nigeria</small>
     </div>
 
-    <div class="constitution-section">
+    <div class="const-section">
         
         <div class="download-area">
             <h3 style="color: #0a2e1f; margin-bottom: 10px;">📄 Official Constitution Document</h3>
@@ -142,8 +163,8 @@
         </div>
 
         <!-- PREAMBLE -->
-        <div class="constitution-card">
-            <div class="constitution-badge">PREAMBLE</div>
+        <div class="const-card">
+            <div class="const-badge">PREAMBLE</div>
             <p style="font-style: italic; font-size: 1.05rem;">We, the members of TINUBU SOLIDARITY INITIATIVE, united by our shared belief in democracy, justice, and progress, do hereby establish this Constitution as the supreme guiding document of our organization.</p>
             <p>Recognizing the importance of civic participation in governance in Nigeria, we commit ourselves to mobilizing citizens, promoting transparency, and fostering unity across ethnic, religious, and social divides.</p>
             <p>We affirm our dedication to empowering youth and women, advancing community development, and supporting leaders who embody integrity and accountability.</p>
@@ -151,8 +172,8 @@
         </div>
 
         <!-- ARTICLE 1 -->
-        <div class="constitution-card">
-            <div class="constitution-badge">ARTICLE 1</div>
+        <div class="const-card">
+            <div class="const-badge">ARTICLE 1</div>
             <h2>NAME, STATUS, HEADQUARTERS, AND IDENTITY</h2>
             <p><strong>1. NAME OF THE INITIATIVE:</strong> The Association shall be known as <strong>TINUBU SOLIDARITY INITIATIVE</strong> (hereinafter referred to as "THE ASSOCIATION").</p>
             <p><strong>2. LEGAL STATUS:</strong> The Association shall operate as a voluntary, non-governmental and non-profit/non-political support Association in Nigeria, in accordance with the Constitution of the Federal Republic of Nigeria.</p>
@@ -162,8 +183,8 @@
         </div>
 
         <!-- ARTICLE 2 -->
-        <div class="constitution-card">
-            <div class="constitution-badge">ARTICLE 2</div>
+        <div class="const-card">
+            <div class="const-badge">ARTICLE 2</div>
             <h2>VISION, MISSION AND OBJECTIVES</h2>
             <p><strong>Vision:</strong> To promote civic engagement, democratic participation, and good governance in Nigeria.</p>
             <p><strong>Mission:</strong> To mobilize citizens towards shared democratic values and national development goals. To promote political awareness and civic education. To support leadership ideals aligned with national unity, economic development, and democratic consolidation.</p>
@@ -171,8 +192,8 @@
         </div>
 
         <!-- ARTICLE 3 -->
-        <div class="constitution-card">
-            <div class="constitution-badge">ARTICLE 3</div>
+        <div class="const-card">
+            <div class="const-badge">ARTICLE 3</div>
             <h2>MEMBERSHIP</h2>
             <p><strong>Eligibility:</strong> Membership shall be open to all Nigerian citizens aged 18 years and above.</p>
             <p><strong>Categories of Membership:</strong> Founding Members, Ordinary Members, Student Members, Honorary Members, Associate Members.</p>
@@ -181,8 +202,8 @@
         </div>
 
         <!-- ARTICLE 4 -->
-        <div class="constitution-card">
-            <div class="constitution-badge">ARTICLE 4</div>
+        <div class="const-card">
+            <div class="const-badge">ARTICLE 4</div>
             <h2>LEADERSHIP STRUCTURE</h2>
             <p><strong>National Executive Committee (NEC):</strong> President/Coordinator, Vice President, Secretary-General, Assistant Secretary, Treasurer, Financial Secretary, Public Relations Officer, Organizing Secretary, Legal Adviser, Youth Leader, Women Leader, Director of Programs, National Spokesperson, Chief Security Officer.</p>
             <p><strong>Tenure:</strong> All elected officers shall serve for a period of <strong>three (3) years</strong>, renewable once. No officer shall hold the same position for more than two consecutive terms.</p>
@@ -191,8 +212,8 @@
         </div>
 
         <!-- ARTICLE 5 -->
-        <div class="constitution-card">
-            <div class="constitution-badge">ARTICLE 5</div>
+        <div class="const-card">
+            <div class="const-badge">ARTICLE 5</div>
             <h2>MEETINGS</h2>
             <p><strong>General Assembly:</strong> Supreme decision-making body. Shall be held at least twice a year. Quorum: one-third of registered members.</p>
             <p><strong>Executive Committee:</strong> Shall meet monthly.</p>
@@ -201,8 +222,8 @@
         </div>
 
         <!-- ARTICLE 6 -->
-        <div class="constitution-card">
-            <div class="constitution-badge">ARTICLE 6</div>
+        <div class="const-card">
+            <div class="const-badge">ARTICLE 6</div>
             <h2>FINANCE</h2>
             <p><strong>Sources of Funds:</strong> Membership registration fees, annual dues, voluntary donations, fundraising activities, grants.</p>
             <p><strong>Financial Management:</strong> All funds shall be deposited into a recognized bank account. Withdrawals require at least two signatories.</p>
@@ -210,8 +231,8 @@
         </div>
 
         <!-- ARTICLE 7 -->
-        <div class="constitution-card">
-            <div class="constitution-badge">ARTICLE 7</div>
+        <div class="const-card">
+            <div class="const-badge">ARTICLE 7</div>
             <h2>DISCIPLINE</h2>
             <p><strong>Code of Conduct:</strong> All members shall uphold democracy, unity, and respect for human rights. Violence, corruption, discrimination, hate speech, and abuse of office are strictly prohibited.</p>
             <p><strong>Disciplinary Committee:</strong> The NEC shall establish a Disciplinary Committee to investigate allegations of misconduct. Fair hearing and due process guaranteed.</p>
@@ -219,15 +240,15 @@
         </div>
 
         <!-- ARTICLE 8 -->
-        <div class="constitution-card">
-            <div class="constitution-badge">ARTICLE 8</div>
+        <div class="const-card">
+            <div class="const-badge">ARTICLE 8</div>
             <h2>AMENDMENTS</h2>
             <p>This Constitution may be amended by the General Assembly. Any member may propose an amendment supported by at least ten members or one-third of the Executive Committee. 30 days' notice required. Adoption requires two-thirds majority of members present and voting.</p>
         </div>
 
         <!-- ARTICLES 9-16 -->
-        <div class="constitution-card">
-            <div class="constitution-badge">ARTICLES 9-16</div>
+        <div class="const-card">
+            <div class="const-badge">ARTICLES 9-16</div>
             <h2>DISSOLUTION, INTERPRETATION & GENERAL PROVISIONS</h2>
             <p><strong>Dissolution (Article 9):</strong> The Association may be dissolved only by two-thirds majority of registered members. Remaining assets shall be donated to charitable organizations.</p>
             <p><strong>Interpretation (Article 10):</strong> The NEC has authority to interpret the Constitution. In case of conflict with national law, the Constitution of Nigeria shall prevail.</p>
@@ -238,8 +259,8 @@
         </div>
 
         <!-- CLOSING -->
-        <div class="constitution-card">
-            <div class="constitution-badge">CLOSING DECLARATION</div>
+        <div class="const-card">
+            <div class="const-badge">CLOSING DECLARATION</div>
             <h2>ADOPTION</h2>
             <p>This Constitution of the Tinubu Solidarity Initiative (TSI) was duly deliberated and agreed upon by the founding members. It shall take effect from the date of its adoption and shall remain binding on all members, officers, and organs of the Association until lawfully amended or dissolved in accordance with its provisions.</p>
             <p style="margin-top: 20px;"><strong>Adopted: April 19, 2026 | Abuja, FCT, Nigeria</strong></p>
@@ -265,6 +286,7 @@
                         <li><a href="vision.html">2027 Vision</a></li>
                         <li><a href="ethics.html">Code of Ethics</a></li>
                         <li><a href="join.html">Join TSI</a></li>
+                        <li><a href="admin.html">Admin Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
