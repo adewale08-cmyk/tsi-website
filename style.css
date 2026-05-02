@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,25 +7,35 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #1a1a2e;
-    background: #fff;
+    background: #fafafc;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
+/* Typography */
+h1, h2, h3, .logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+/* Header - Premium */
 header {
-    background: #0a3d2e;
+    background: #0a2e1f;
     color: white;
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(10, 46, 31, 0.95);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 header .container {
@@ -33,26 +45,27 @@ header .container {
     flex-wrap: wrap;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
 .logo h1 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 0%, #ffd700 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    transition: color 0.3s;
+    font-size: 0.95rem;
 }
 
 nav a:hover {
@@ -68,33 +81,88 @@ nav a:hover {
     cursor: pointer;
 }
 
+/* Hero Section - Premium */
 .hero {
-    background: linear-gradient(135deg, #0a3d2e 0%, #1b5e3f 100%);
+    background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 50%, #0a2e1f 100%);
     color: white;
-    padding: 4rem 0;
+    padding: 6rem 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="white" d="M50,0 L61,35 L98,35 L68,57 L79,92 L50,70 L21,92 L32,57 L2,35 L39,35 Z"/></svg>');
+    background-size: 60px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.badge {
+    background: rgba(255, 215, 0, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    letter-spacing: 1px;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
 }
 
 .highlight {
     color: #ffd700;
+    position: relative;
+    display: inline-block;
 }
 
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Buttons */
 .btn {
     display: inline-block;
-    padding: 0.8rem 2rem;
-    border-radius: 40px;
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
 }
 
 .btn-primary {
     background: #ffd700;
-    color: #0a3d2e;
+    color: #0a2e1f;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background: #ffc107;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
 }
 
 .btn-secondary {
@@ -103,174 +171,391 @@ nav a:hover {
     border: 2px solid white;
 }
 
+.btn-secondary:hover {
+    background: white;
+    color: #0a2e1f;
+    transform: translateY(-3px);
+}
+
+/* Stats Section */
 .stats {
-    padding: 3rem 0;
-    background: #f5f5f5;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
     text-align: center;
 }
 
 .stat-card {
     background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 .stat-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #0a3d2e;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0a2e1f;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
 }
 
-.pillars {
-    padding: 4rem 0;
+.stat-label {
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
+/* Section Titles */
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 1rem;
 }
 
-.pillars-grid {
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #ffd700;
+    border-radius: 3px;
+}
+
+/* Pillars/Policies Grid */
+.policies-grid, .vision-grid, .trustees-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+    margin: 2rem 0;
 }
 
-.pillar-card {
-    background: #f9f9f9;
+.policy-card, .vision-card {
+    background: white;
     padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    border-bottom: 4px solid #ffd700;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-left: 4px solid #ffd700;
 }
 
+.policy-card:hover, .vision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.policy-icon, .vision-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.policy-card h3, .vision-card h3 {
+    margin-bottom: 0.75rem;
+    color: #0a2e1f;
+}
+
+/* CTA Section */
 .cta-section {
-    background: #0a3d2e;
+    background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 100%);
     color: white;
     text-align: center;
-    padding: 4rem;
+    padding: 5rem 2rem;
+    border-radius: 30px;
+    margin: 3rem auto;
 }
 
+.cta-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
 footer {
-    background: #1a1a2e;
-    color: #ccc;
-    padding: 3rem 0 1rem;
+    background: #0a0f1c;
+    color: #aaa;
+    padding: 4rem 0 2rem;
+    margin-top: 3rem;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-about h3, .footer-links h4, .footer-contact h4 {
+    color: white;
+    margin-bottom: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a, .footer-contact a {
+    color: #aaa;
+    text-decoration: none;
+    line-height: 2;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffd700;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85rem;
 }
 
+/* Page Hero */
 .page-hero {
-    background: #0a3d2e;
+    background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 100%);
     color: white;
     text-align: center;
-    padding: 3rem 0;
+    padding: 4rem 0;
+    position: relative;
 }
 
+.page-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Content Sections */
 .content-section {
-    padding: 3rem 0;
+    padding: 4rem 0;
 }
 
+/* Achievement Blocks */
 .achievement-block {
     background: white;
-    border-radius: 12px;
+    border-radius: 20px;
     padding: 2rem;
     margin-bottom: 2rem;
-    border-left: 4px solid #ffd700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 5px solid #ffd700;
+}
+
+.achievement-block h2 {
+    color: #0a2e1f;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
 }
 
 .achievement-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
-.vision-grid {
+.achievement-stat {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.stat-change {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0a2e1f;
+}
+
+.highlight-box {
+    background: #e8f5e9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.impact-card {
+    background: linear-gradient(135deg, #0a2e1f, #1a4d33);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 1rem 0;
+}
+
+.impact-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+/* Two Column Layout */
+.two-column-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+/* Forms */
+.registration-form, .contact-info, .ethics-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.registration-form input, 
+.registration-form select, 
+.registration-form textarea,
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 0.9rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: inherit;
+    transition: border 0.3s;
+}
+
+.registration-form input:focus,
+.registration-form select:focus,
+.registration-form textarea:focus {
+    outline: none;
+    border-color: #ffd700;
+}
+
+/* Ethics Page */
+.ethics-article {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.ethics-article h3 {
+    color: #0a2e1f;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #ffd700;
+    display: inline-block;
+}
+
+.ethics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.ethics-table th, .ethics-table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.ethics-table th {
+    background: #0a2e1f;
+    color: white;
+}
+
+/* Trustees Grid */
+.trustee-card {
+    background: linear-gradient(135deg, #0a2e1f, #1a4d33);
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.trustee-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Leadership Cards */
+.leadership-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin: 2rem 0;
 }
 
-.vision-card {
-    background: #f5f5f5;
+.leadership-card {
+    background: white;
     padding: 1.5rem;
-    border-radius: 12px;
-}
-
-.continuity-banner {
-    background: #0a3d2e;
-    color: white;
+    border-radius: 16px;
     text-align: center;
-    padding: 2rem;
-    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 3px solid #ffd700;
 }
 
-.warning-box {
-    background: #fff3e0;
-    border-left: 4px solid #ff9800;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
+.leadership-card h3 {
+    color: #0a2e1f;
+    margin-bottom: 0.25rem;
 }
 
-.two-column-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+.leadership-card .title {
+    color: #ffd700;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
 }
 
-.registration-form, .contact-info {
-    background: #f5f5f5;
-    padding: 2rem;
-    border-radius: 12px;
+.leadership-card .subtitle {
+    color: #666;
+    font-size: 0.8rem;
 }
 
-.registration-form input, .registration-form select, .registration-form textarea,
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.preamble-box {
-    background: #e8f5e9;
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-}
-
-.trustees-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.trustee-card {
-    background: #0a3d2e;
-    color: white;
+/* Code of Ethics Page */
+.ethics-nav {
+    background: #f8f9fa;
     padding: 1rem;
-    text-align: center;
-    border-radius: 8px;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
+.ethics-nav a {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #0a2e1f;
+    font-size: 0.85rem;
+    border: 1px solid #ddd;
+}
+
+.ethics-nav a:hover {
+    background: #ffd700;
+    border-color: #ffd700;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
     .mobile-menu-btn {
         display: block;
     }
@@ -279,8 +564,10 @@ footer {
         display: none;
         flex-direction: column;
         width: 100%;
-        background: #0a3d2e;
+        background: #0a2e1f;
         padding: 1rem;
+        margin-top: 1rem;
+        gap: 1rem;
     }
     
     nav ul.show {
@@ -288,6 +575,34 @@ footer {
     }
     
     .hero h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .two-column-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .ethics-table {
+        font-size: 0.7rem;
+        overflow-x: auto;
+        display: block;
+    }
+}
+
+/* Address Styling */
+.address-box {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-top: 1rem;
+    border-left: 4px solid #ffd700;
+}
+
+.address-box p {
+    margin: 0.5rem 0;
+    line-height: 1.8;
 }
