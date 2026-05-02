@@ -112,7 +112,7 @@ nav a:hover {
     cursor: pointer;
 }
 
-/* Hero Section - Animated Gradient */
+/* Hero Section - Fixed Circular Background */
 .hero {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
     color: white;
@@ -120,28 +120,66 @@ nav a:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
 }
 
+/* Circular floating animation - no rectangular box */
 .hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="white" d="M50,0 L61,35 L98,35 L68,57 L79,92 L50,70 L21,92 L32,57 L2,35 L39,35 Z"/></svg>');
-    background-size: 60px;
-    animation: float 20s infinite linear;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, rgba(255,215,0,0) 60%);
+    animation: rotateSlow 30s infinite linear;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, rgba(255,215,0,0) 70%);
+    animation: rotateSlow 20s infinite linear reverse;
+    pointer-events: none;
+}
+
+@keyframes rotateSlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Floating particles - circular distribution */
+.hero .particle {
+    position: absolute;
+    background: rgba(255, 215, 0, 0.15);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 15s infinite ease-in-out;
 }
 
 @keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-100%) rotate(360deg); }
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -163,6 +201,9 @@ nav a:hover {
     font-size: 3.8rem;
     margin-bottom: 1.2rem;
     line-height: 1.2;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .highlight {
@@ -175,6 +216,9 @@ nav a:hover {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Modern Buttons */
@@ -214,7 +258,7 @@ nav a:hover {
     transform: translateY(-3px);
 }
 
-/* Stats Section - Glass Cards */
+/* Stats Section */
 .stats {
     padding: 5rem 0;
     background: var(--gray-50);
@@ -284,7 +328,7 @@ nav a:hover {
     border-radius: 3px;
 }
 
-/* Policy & Vision Cards - Modern Hover */
+/* Policy & Vision Cards */
 .policies-grid, .vision-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -314,6 +358,7 @@ nav a:hover {
 .policy-card h3, .vision-card h3 {
     margin-bottom: 0.75rem;
     color: var(--primary);
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 /* CTA Section */
@@ -329,6 +374,7 @@ nav a:hover {
 .cta-section h2 {
     font-size: 2.2rem;
     margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 /* Footer */
@@ -381,11 +427,31 @@ footer {
     text-align: center;
     padding: 4rem 0;
     position: relative;
+    overflow: hidden;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, rgba(255,215,0,0) 60%);
+    animation: rotateSlow 25s infinite linear;
 }
 
 .page-hero h1 {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    position: relative;
+    z-index: 2;
+}
+
+.page-hero p {
+    position: relative;
+    z-index: 2;
 }
 
 /* Achievement Blocks */
@@ -408,6 +474,7 @@ footer {
     color: var(--primary);
     margin-bottom: 1.5rem;
     font-size: 1.6rem;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .achievement-stats {
@@ -449,6 +516,7 @@ footer {
 .impact-number {
     font-size: 2.5rem;
     font-weight: 800;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 /* Two Column Layout */
@@ -476,7 +544,7 @@ footer {
     margin-bottom: 1rem;
     border: 1px solid var(--gray-200);
     border-radius: 16px;
-    font-family: inherit;
+    font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
 }
 
@@ -503,6 +571,42 @@ footer {
     padding-bottom: 0.5rem;
     border-bottom: 2px solid #ffd700;
     display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Constitution Articles */
+.constitution-article {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-left: 4px solid #ffd700;
+}
+
+.constitution-article h2 {
+    color: #0a2e1f;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.constitution-article h3 {
+    color: #1a4d33;
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.article-number {
+    display: inline-block;
+    background: #ffd700;
+    color: #0a2e1f;
+    padding: 0.25rem 0.75rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 /* Trustees Grid */
@@ -542,6 +646,11 @@ footer {
     border-top: 3px solid #ffd700;
 }
 
+.leadership-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--primary);
+}
+
 /* Preamble Box */
 .preamble-box {
     background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
@@ -568,6 +677,29 @@ footer {
     border-radius: 16px;
 }
 
+/* Download Section */
+.download-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-radius: 20px;
+}
+
+.signatory-box {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8e8ec 100%);
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.signatory-line {
+    border-top: 1px solid #ccc;
+    width: 200px;
+    margin: 1rem auto;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .container {
@@ -592,8 +724,17 @@ footer {
         display: flex;
     }
     
+    .hero {
+        padding: 4rem 0;
+        min-height: 400px;
+    }
+    
     .hero h1 {
         font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
     }
     
     .section-title {
@@ -603,4 +744,44 @@ footer {
     .two-column-layout {
         grid-template-columns: 1fr;
     }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .page-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .constitution-article {
+        padding: 1rem;
+    }
+    
+    .constitution-article h2 {
+        font-size: 1.2rem;
+    }
+    
+    .constitution-article h3 {
+        font-size: 1rem;
+    }
+}
+
+/* Desktop large screens */
+@media (min-width: 1440px) {
+    .hero h1 {
+        font-size: 4.5rem;
+    }
+    
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* Ensure text is readable on all devices */
+p, li, .stat-label, .btn {
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, .logo h1, .stat-number, .impact-number {
+    font-family: 'Space Grotesk', sans-serif;
 }
