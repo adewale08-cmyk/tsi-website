@@ -37,6 +37,19 @@ header .container {
     flex-wrap: wrap;
 }
 
+/* Logo styling - with image */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
 .logo h1 {
     font-size: 1.25rem;
     font-family: 'Space Grotesk', sans-serif;
@@ -195,15 +208,16 @@ nav a:hover {
     z-index: 10;
 }
 
-/* Hero Title - Keeps "A Renewed Hope Delivered" together */
+/* Hero Title - "A Renewed Hope Delivered" on ONE LINE */
 .hero h1 {
-    font-size: 3.8rem;
+    font-size: 3.5rem;
     margin-bottom: 1.2rem;
     line-height: 1.2;
     position: relative;
     z-index: 10;
     font-family: 'Space Grotesk', sans-serif;
     letter-spacing: -0.02em;
+    white-space: nowrap;
 }
 
 .highlight {
@@ -569,6 +583,15 @@ footer {
         display: flex;
     }
     
+    .logo-img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .logo h1 {
+        font-size: 0.9rem;
+    }
+    
     .hero {
         padding: 3rem 0;
         min-height: 400px;
@@ -576,6 +599,7 @@ footer {
     
     .hero h1 {
         font-size: 1.8rem;
+        white-space: normal;
     }
     
     .hero p {
@@ -607,7 +631,8 @@ footer {
 /* Desktop Large Screens */
 @media (min-width: 1440px) {
     .hero h1 {
-        font-size: 4.5rem;
+        font-size: 4rem;
+        white-space: nowrap;
     }
     
     .container {
@@ -622,11 +647,13 @@ footer {
     text-align: center;
     padding: 80px 20px;
 }
+
 .constitution-header h1 {
     font-size: 56px;
     margin: 0;
     font-family: 'Space Grotesk', sans-serif;
 }
+
 @media (max-width: 768px) {
     .constitution-header h1 {
         font-size: 32px;
