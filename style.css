@@ -37,7 +37,7 @@ header .container {
     flex-wrap: wrap;
 }
 
-/* Logo styling - with image */
+/* Logo styling */
 .logo {
     display: flex;
     align-items: center;
@@ -59,19 +59,22 @@ header .container {
     color: transparent;
 }
 
+/* Navigation - FIXED: stays in straight line */
 nav ul {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1rem;
+    flex-wrap: nowrap;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     transition: color 0.3s;
     position: relative;
+    white-space: nowrap;
 }
 
 nav a::after {
@@ -208,16 +211,19 @@ nav a:hover {
     z-index: 10;
 }
 
-/* Hero Title - "A Renewed Hope Delivered" on ONE LINE */
+/* Hero Title - on two separate lines */
 .hero h1 {
     font-size: 3.5rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.5rem;
     line-height: 1.2;
     position: relative;
     z-index: 10;
     font-family: 'Space Grotesk', sans-serif;
     letter-spacing: -0.02em;
-    white-space: nowrap;
+}
+
+.hero h1:last-of-type {
+    margin-bottom: 1.2rem;
 }
 
 .highlight {
@@ -240,6 +246,25 @@ nav a:hover {
 .hero-buttons {
     position: relative;
     z-index: 10;
+}
+
+/* Hero Logo (below buttons on landing page) */
+.hero-logo {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.hero-logo-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.hero-logo-img:hover {
+    opacity: 1;
+    transform: scale(1.05);
 }
 
 /* Buttons */
@@ -287,14 +312,14 @@ nav a:hover {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1.5rem;
     text-align: center;
 }
 
 .stat-card {
     background: white;
-    padding: 1.8rem;
+    padding: 1.5rem;
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     transition: all 0.3s;
@@ -308,7 +333,7 @@ nav a:hover {
 }
 
 .stat-number {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 800;
     color: #0a2e1f;
     font-family: 'Space Grotesk', sans-serif;
@@ -316,7 +341,7 @@ nav a:hover {
 
 .stat-label {
     color: #555;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
@@ -559,7 +584,35 @@ footer {
     font-family: 'Space Grotesk', sans-serif;
 }
 
+/* Constitution Page Specific */
+.constitution-header {
+    background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.constitution-header h1 {
+    font-size: 56px;
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
 /* Responsive */
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 0.8rem;
+    }
+    
+    nav a {
+        font-size: 0.75rem;
+    }
+    
+    .logo h1 {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 20px;
@@ -576,11 +629,16 @@ footer {
         background: #0a2e1f;
         padding: 1rem;
         margin-top: 1rem;
-        gap: 1rem;
+        gap: 0.8rem;
     }
     
     nav ul.show {
         display: flex;
+    }
+    
+    nav a {
+        white-space: normal;
+        font-size: 0.9rem;
     }
     
     .logo-img {
@@ -589,7 +647,7 @@ footer {
     }
     
     .logo h1 {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     
     .hero {
@@ -599,7 +657,6 @@ footer {
     
     .hero h1 {
         font-size: 1.8rem;
-        white-space: normal;
     }
     
     .hero p {
@@ -609,6 +666,11 @@ footer {
     
     .badge {
         font-size: 0.7rem;
+    }
+    
+    .hero-logo-img {
+        width: 60px;
+        height: 60px;
     }
     
     .section-title {
@@ -626,36 +688,26 @@ footer {
     .page-hero h1 {
         font-size: 1.8rem;
     }
+    
+    .constitution-header h1 {
+        font-size: 32px;
+    }
 }
 
-/* Desktop Large Screens */
 @media (min-width: 1440px) {
     .hero h1 {
         font-size: 4rem;
-        white-space: nowrap;
     }
     
     .container {
         max-width: 1400px;
     }
-}
-
-/* Constitution Page Specific (no conflicts) */
-.constitution-header {
-    background: linear-gradient(135deg, #0a2e1f 0%, #1a4d33 100%);
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.constitution-header h1 {
-    font-size: 56px;
-    margin: 0;
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-@media (max-width: 768px) {
-    .constitution-header h1 {
-        font-size: 32px;
+    
+    nav ul {
+        gap: 1.5rem;
+    }
+    
+    nav a {
+        font-size: 0.9rem;
     }
 }
